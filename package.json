@@ -1,0 +1,9 @@
+{
+  "name": "Store_App",
+  "description": "store app built with the mean stack",
+  "dependencies": {
+    "body-parser": "^1.12.0",
+    "express": "^4.12.0",
+    "mongoose": "^3.8.24"
+  }
+}

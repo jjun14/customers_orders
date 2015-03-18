@@ -1,0 +1,38 @@
+<div class='container' ng-controller='customersController'>
+  <div class="row">
+      <div class="col-md-6">
+      <a href="#/orders">Orders</a> |
+      <p>Customers</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <h4>Add a new customer</h4>
+      <p ng-hide='uniqueUser'>Must enter a unique name!</p>
+      Customer Name: <input type="text" ng-model='newCustomer.name'>
+      <input class='btn btn-primary' type="submit" ng-click='addCustomer(newCustomer)' value='Add Customer'>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 pull-right">
+      <input type="text" ng-model='filter_name' placeholder='Search'>
+    </div>
+  </div>
+  <table class='table table-bordered table-striped' ng-controller='customersController'>
+    <thead>
+      <tr>
+        <th>Customer Name</th>
+        <th>Created Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat='customer in customers | filter: filter_name'>
+        <td>{{customer.name}}</td>
+        <td>{{ customer.created_at | date: format:longdate }}</td>
+        <td><a class='btn btn-danger' ng-click='deleteCustomer(customer)'>Remove</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
